@@ -58,14 +58,3 @@
 #symbolWrapper .cross {
   width: 20% !important;
 }
-
-@media screen and (max-aspect-ratio: 1/1) {
-  #symbolWrapper {
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-  }
-
-  #winningText {
-    font-size: 5vw;
-  }
-}
