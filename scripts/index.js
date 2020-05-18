@@ -343,14 +343,12 @@ function analyzeGrid(focusSymbol) {
 
       if (focusSymbol === 'cross') {
         if (crossCounter === 2 && unusedCounter === 1 && circleCounter === 0)
-          isCritical = true;
+          return posibility
       } else if (focusSymbol === 'circle') {
         if (circleCounter === 2 && unusedCounter === 1 && crossCounter === 0)
-          isCritical = true;
+          return posibility
       }
     }
-
-    if (isCritical) return posibility;
   }
 
   return false;
