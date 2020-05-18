@@ -67,10 +67,3 @@
 #cell9 {
     border-left-width: 5px;
 }
-
-@media screen and (max-aspect-ratio: 1/1) {
-    .cell {
-        width: 25vw;
-        height: 25vw;
-    }
-}
