@@ -327,7 +327,6 @@ function analyzeGrid(focusSymbol) {
   ];
 
   for (const posibility of winningPosibilities) {
-    let isCritical = false;
     let crossCounter = 0;
     let circleCounter = 0;
     let unusedCounter = 0;
