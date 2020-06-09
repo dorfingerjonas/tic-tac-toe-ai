@@ -60,7 +60,7 @@ function addEventListenersToCells() {
             }, 1000);
           }
 
-          let areThreeInARow = checkThreeInOneRow(symbol);
+          const areThreeInARow = checkThreeInOneRow(symbol);
 
           if (areThreeInARow[0]) {
             gameOver = true;
@@ -74,7 +74,6 @@ function addEventListenersToCells() {
 
           setTimeout(() => {
             if (checkIfGameIsDraw() && !gameOver) {
-              // draw
               showWinner('draw');
               gameOver = true;
             }
@@ -138,7 +137,7 @@ function getCellIndizesOfOneSymbol(symbol) {
 }
 
 function checkThreeInOneRow(symbol) {
-  const winningPosibilities = [
+  const winningPossibilities = [
     ['1', '2', '3'],
     ['4', '5', '6'],
     ['7', '8', '9'],
@@ -153,14 +152,14 @@ function checkThreeInOneRow(symbol) {
   let contains = false;
   let winningOrder = [];
 
-  for (const posibility of winningPosibilities) {
+  for (const possibility of winningPossibilities) {
     if (
-      cellIndizes.includes(posibility[0]) &&
-      cellIndizes.includes(posibility[1]) &&
-      cellIndizes.includes(posibility[2])
+      cellIndizes.includes(possibility[0]) &&
+      cellIndizes.includes(possibility[1]) &&
+      cellIndizes.includes(possibility[2])
     ) {
       contains = true;
-      winningOrder = posibility;
+      winningOrder = possibility;
     }
   }
 
@@ -181,7 +180,7 @@ function resetGame() {
 
       while (cell.firstChild) cell.removeChild(cell.firstChild);
 
-      resultText.innerHTML = `cross' turn`;
+      resultText.textContent = `cross' turn`;
     }
 
     const symbolWrapper = document.getElementById('symbolWrapper');
@@ -315,7 +314,7 @@ function getRandomCellIndex() {
 }
 
 function analyzeGrid(focusSymbol) {
-  const winningPosibilities = [
+  const winningPossibilities = [
     ['1', '2', '3'],
     ['4', '5', '6'],
     ['7', '8', '9'],
@@ -326,12 +325,12 @@ function analyzeGrid(focusSymbol) {
     ['3', '5', '7'],
   ];
 
-  for (const posibility of winningPosibilities) {
+  for (const possibility of winningPossibilities) {
     let crossCounter = 0;
     let circleCounter = 0;
     let unusedCounter = 0;
 
-    for (const cell of posibility) {
+    for (const cell of possibility) {
       if (document.getElementById(`cell${cell}`).symbol === 'circle') {
         circleCounter++;
       } else if (document.getElementById(`cell${cell}`).symbol === 'cross') {
@@ -342,10 +341,10 @@ function analyzeGrid(focusSymbol) {
 
       if (focusSymbol === 'cross') {
         if (crossCounter === 2 && unusedCounter === 1 && circleCounter === 0)
-          return posibility
+          return possibility;
       } else if (focusSymbol === 'circle') {
         if (circleCounter === 2 && unusedCounter === 1 && crossCounter === 0)
-          return posibility
+          return possibility;
       }
     }
   }
